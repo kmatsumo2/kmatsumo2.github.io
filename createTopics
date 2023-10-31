@@ -1,0 +1,16 @@
+// トピックを作成する
+function createTopics() {
+  const activeSpreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = activeSpreadSheet.getSheetByName("トピックを作成する");
+  const values = sheet.getDataRange().getValues();
+  values.shift();
+  const array = values;
+  for (let i in array) {
+    const courseId = array[i][1];
+    const assignment = {
+      name: array[i][2]
+    }
+    const topic = Classroom.Courses.Topics.create(assignment, courseId);
+    Logger.log('Topic created: %s (%s)', topic.name, topic.topicId);
+  }
+}
