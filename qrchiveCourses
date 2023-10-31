@@ -1,0 +1,14 @@
+// クラスルームをアーカイブする
+function archiveCourses() {
+	const activeSpreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = activeSpreadSheet.getSheetByName("クラスルームをアーカイブ");
+	const values = sheet.getDataRange().getValues();
+	values.shift();
+	const array = values;
+	for (let i in array) {
+		const archiveId = array[i][0];
+    const course = {"courseState": "ARCHIVED"};
+		Classroom.Courses.patch(course, archiveId, {"updateMask":"courseState"});
+		Logger.log("Course State: %s", course.courseState);
+	}
+}
