@@ -1,0 +1,20 @@
+// クラスルームを作成する
+function createCourses() {
+  const activeSpreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = activeSpreadSheet.getSheetByName("クラスルームを作成");
+  const values = sheet.getDataRange().getValues();
+  values.shift();
+  const array = values;
+  for (let i in array) {
+    const assignment = {
+      name: array[i][0],
+      section: array[i][1],
+      description: array[i][2],
+      ownerId: array[i][3],
+      courseState: array[i][4],
+      room: array[i][5],
+    }
+    const course = Classroom.Courses.create(assignment);
+    Logger.log('Course created: %s (%s)', course.name, course.id);
+  }
+}
