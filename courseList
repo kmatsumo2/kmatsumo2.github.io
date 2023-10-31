@@ -1,0 +1,14 @@
+// クラスルームのcourseIdを表示する
+function courseList() {
+  const optionalArgs = {
+    pageSize: 20
+  };
+  const response = Classroom.Courses.list(optionalArgs);
+  const courses = response.courses;
+  if (courses && courses.length > 0) {
+    for (i = 0; i < courses.length; i++) {
+      let course = courses[i];
+      Logger.log("%s (%s)", course.name, course.id);
+    }
+  }
+}
