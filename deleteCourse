@@ -1,0 +1,3 @@
+function deleteCourse() {
+  Classroom.Courses.remove("courseId");
+}
