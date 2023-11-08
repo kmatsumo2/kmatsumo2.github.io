@@ -1,0 +1,29 @@
+// 課題（driveFile）を作成する
+function createCourseWorkAsDriveFile() {
+  const activeSpreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = activeSpreadSheet.getSheetByName("createCourseWorkAsDriveFile");
+  const values = sheet.getDataRange().getValues();
+  values.shift();
+  const array = values;
+  for (let i in array) {
+    const courseId = array[i][0];
+    const assignment = {
+      title: array[i][1],
+      description: array[i][2],
+      materials: [{
+        "driveFile": {
+          "driveFile": {
+            "id" : array[i][3]
+          },
+          "shareMode" : array[i][4]
+        }
+      }],
+      state: array[i][5],
+      maxPoints: array[i][6],
+      workType: array[i][7],
+      topicId: array[i][8]
+    }
+    const createcourseworkasdrivefile = Classroom.Courses.CourseWork.create(assignment, courseId);
+    Logger.log('CourseWork created: %s (%s)', createcourseworkasdrivefile.title, createcourseworkasdrivefile.topicId);
+  }
+}
