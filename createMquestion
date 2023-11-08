@@ -1,0 +1,27 @@
+// 質問（選択式）を作成する
+function createMQuiz() {
+  const activeSpreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = activeSpreadSheet.getSheetByName("createMquestion");
+  const values = sheet.getDataRange().getValues();
+  values.shift();
+  const array = values;
+  for (let i in array) {
+    const courseId = array[i][0];
+    const assignment = {
+      title : array[i][1],
+      description : array[i][2],
+      state : array[i][3],
+      maxPoints : array[i][4],
+      workType : array[i][5],
+      multipleChoiceQuestion : {
+      "choices" : [
+        choice1 = array[i][6],
+        choice2 = array[i][7],
+        choice3 = array[i][8],
+      ]},
+      topicId : array[i][9]
+    }
+    const createmquestion = Classroom.Courses.CourseWork.create(assignment, courseId);
+    Logger.log('Topic created: %s (%s)', createmquestion.title, createmquestion.topicId);
+  }
+}
