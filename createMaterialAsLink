@@ -1,0 +1,24 @@
+// 資料（Link）を作成する
+function createMaterialAsLink() {
+  const activeSpreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = activeSpreadSheet.getSheetByName("createMaterialAsLink");
+  const values = sheet.getDataRange().getValues();
+  values.shift();
+  const array = values;
+  for (let i in array) {
+    const courseId = array[i][0];
+    const assignment = {
+      title: array[i][1],
+      description: array[i][2],
+      materials: [{
+        "link": {
+          "url": array[i][3]
+        }
+      }],
+      state: array[i][4],
+      topicId: array[i][5]
+    }
+    const creatematerialaslink = Classroom.Courses.CourseWorkMaterials.create(assignment, courseId);
+    Logger.log('CourseWorkMaterial created: %s (%s)', creatematerialaslink.title, creatematerialaslink.topicId);
+  }
+}
