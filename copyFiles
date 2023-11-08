@@ -1,0 +1,22 @@
+//フォルダ内のファイルをコピー
+function copyFiles() {
+  const folder = DriveApp.getFolderById("1c5hvACKgEGoUH35FHKhP7eJF4UG1GuW3");
+  const activeSpreadSheet = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = activeSpreadSheet.getSheetByName('copyFiles');
+  const values = sheet.getDataRange().getValues();
+  values.shift();
+
+  const array = values;
+
+  for (let i in array) {
+  
+  const destination = DriveApp.getFolderById(array[i][0]);
+
+  const fileList = folder.getFiles();
+  while (fileList.hasNext()) {
+  const file = fileList.next();
+  file.makeCopy(file.getName(), destination);
+ }    
+  Logger.log('file copy finished.');
+ } 
+}
