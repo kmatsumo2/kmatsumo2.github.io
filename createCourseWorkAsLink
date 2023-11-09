@@ -1,7 +1,7 @@
 // 課題（Link）を作成する
-function createCourseWorkAsDriveFile() {
+function createCourseWorkAsLink() {
   const activeSpreadSheet = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = activeSpreadSheet.getSheetByName("createCourseWorkAsDriveFile");
+  const sheet = activeSpreadSheet.getSheetByName("createCourseWorkAsLink");
   const values = sheet.getDataRange().getValues();
   values.shift();
   const array = values;
@@ -15,12 +15,12 @@ function createCourseWorkAsDriveFile() {
           "url" : array[i][3]
         }
       }],
-      state: array[i][5],
-      maxPoints: array[i][6],
-      workType: array[i][7],
-      topicId: array[i][8]
+      state: array[i][4],
+      maxPoints: array[i][5],
+      workType: array[i][6],
+      topicId: array[i][7]
     }
-    const createcourseworkasdrivefile = Classroom.Courses.CourseWork.create(assignment, courseId);
-    Logger.log('CourseWork created: %s (%s)', createcourseworkasdrivefile.title, createcourseworkasdrivefile.topicId);
+    const createcourseworkaslink = Classroom.Courses.CourseWork.create(assignment, courseId);
+    Logger.log('CourseWork created: %s (%s)', createcourseworkaslink.title, createcourseworkaslink.topicId);
   }
 }
