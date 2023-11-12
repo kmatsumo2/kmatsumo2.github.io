@@ -1,0 +1,94 @@
+// 2つのドライブファイル
+materials : [{
+  "driveFile" : {
+    "driveFile" : {
+      "id" : "1kh50GqZTnDkz-VbaGdZPpzBViReoP0xlDv8LcYXC740"
+    }
+  }
+},
+{
+  "driveFile" : {
+    "driveFile" : {
+      "id" : "1l2aUAuMZroQCBh1kTIFD7QvZSlw0iqjUNzJVnugraX0"
+    }
+  }
+}],
+
+// 2つのリンク
+materials: [{
+  "link": {
+    "url": "https://www.yahoo.co.jp/"
+  }
+}, {
+  "link": {
+    "url": "https://www.msn.com/ja-jp"
+  }
+}],
+
+// リンクとドライブファイル
+materials: [{
+  "link": {
+    "url": "https://www.yahoo.co.jp/"
+  }
+}, {
+  "driveFile": {
+    "driveFile": {
+      "id": "1l2aUAuMZroQCBh1kTIFD7QvZSlw0iqjUNzJVnugraX0"
+    }
+  }
+}],
+
+// 3つのドライブファィル
+materials : [{
+  "driveFile" : {
+    "driveFile" : {
+      "id" : "1kh50GqZTnDkz-VbaGdZPpzBViReoP0xlDv8LcYXC740"
+    }
+  }
+},
+{
+  "driveFile" : {
+    "driveFile" : {
+      "id" : "1l2aUAuMZroQCBh1kTIFD7QvZSlw0iqjUNzJVnugraX0"
+    }
+  }
+},
+{
+  "driveFile" : {
+    "driveFile" : {
+      "id" : "1sJCv3Eda2MTUW5k8E3ni2sE3udMnqze3I-8rsricJ-c"
+    }
+  }
+}],
+
+// 3つのリンク
+materials: [{
+  "link": {
+    "url": "https://www.yahoo.co.jp/"
+  }
+}, {
+  "link": {
+    "url": "https://www.msn.com/ja-jp"
+  }
+}, {
+  "link": {
+    "url": "https://www.nifty.com/"
+  }
+}],
+
+// 2つのリンクとドライブファイル
+materials: [{
+  "link": {
+    "url": "https://www.yahoo.co.jp/"
+  }
+}, {
+  "link": {
+    "url": "https://www.msn.com/ja-jp"
+  }
+}, {
+  "driveFile": {
+    "driveFile" : {
+      "id": "1sJCv3Eda2MTUW5k8E3ni2sE3udMnqze3I-8rsricJ-c"
+    }
+  }
+}],
